@@ -222,14 +222,14 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangeMaxStation() {// переключение с максимально допустимой станции радио вперед
+    public void shouldChangeMaxStation() {// переключение максимально допустимой станции вперед
         Radio radio = new Radio();
         radio.setCurrentRadioStationNumber(9);
 
         radio.nextStation();
 
         int expected = 0;
-        int actual = radio.getCurrentRadioStationNumber();
+        int actual = radio.getMinRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -242,6 +242,19 @@ public class RadioTest {
         radio.nextStation();
 
         int expected = 1;
+        int actual = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldChangeNextStationMax() {// переключение на максимально допустимую станцию радио вперед (граничные значения)
+        Radio radio = new Radio();
+        radio.setCurrentRadioStationNumber(8);
+
+        radio.nextStation();
+
+        int expected = 9;
         int actual = radio.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -274,14 +287,14 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldChangePrevInvalidStation() {// переключение недопустимой cтанции радио
+    public void shouldChangePrevMinStation() {// переключение минимальной cтанции радио назад
         Radio radio = new Radio();
-        radio.setCurrentRadioStationNumber(10);
+        radio.setCurrentRadioStationNumber(0);
 
         radio.prevStation();
 
-        int expected = 0;
-        int actual = radio.getCurrentRadioStationNumber();
+        int expected = 9;
+        int actual = radio.getMaxRadioStation();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -295,19 +308,6 @@ public class RadioTest {
         radio.prevStation();
 
         int expected = 0;
-        int actual = radio.getCurrentRadioStationNumber();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldChangePrevMinStation() {// переключение минимально допустимой cтанции радио назад
-        Radio radio = new Radio();
-        radio.setCurrentRadioStationNumber(0);
-
-        radio.prev0();
-
-        int expected = 9;
         int actual = radio.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);

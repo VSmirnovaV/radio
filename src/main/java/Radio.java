@@ -1,6 +1,8 @@
 public class Radio {
     public int soundVolume;
     public int currentRadioStationNumber;
+    public int minRadioStation = 0;
+    public int maxRadioStation = 9;
 
     //Звук
     public int getSoundVolume() {
@@ -25,11 +27,14 @@ public class Radio {
     }
 
     public void decreaseVolume() {
-        if (soundVolume <= 100) {
+        if (soundVolume < 100) {
             soundVolume = soundVolume - 1;
         }
         if (soundVolume <= 0) {
-           soundVolume = 0;
+            soundVolume = 0;
+        }
+        if (soundVolume == 100) {
+            soundVolume = 99;
         }
     }
 
@@ -49,26 +54,30 @@ public class Radio {
         currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
+    public int getMaxRadioStation() {
+        setCurrentRadioStationNumber(minRadioStation);
+        return maxRadioStation;
+    }
+
+    public int getMinRadioStation() {
+        setCurrentRadioStationNumber(maxRadioStation);
+        return minRadioStation;
+    }
+
     public void nextStation() {
         if (currentRadioStationNumber < 9) {
             currentRadioStationNumber = currentRadioStationNumber + 1;
         }
-        if (currentRadioStationNumber == 9) {
-            currentRadioStationNumber = 0;
-        }
     }
-
-    public void prevStation() {
-        if (0 < currentRadioStationNumber && currentRadioStationNumber < 10) {
+        public void prevStation() {
+        if (currentRadioStationNumber < 9) {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
-    }
-
-        public void prev0() {
-        int stationAfter = 9;
-        setCurrentRadioStationNumber(stationAfter);
+        if (currentRadioStationNumber == 9) {
+            currentRadioStationNumber = 8;
         }
     }
+}
 
 
 
