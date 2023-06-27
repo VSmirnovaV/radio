@@ -8,10 +8,11 @@ public class RadioTest {
     public void soundShouldBeSet() { //установка громкости
         Radio radio = new Radio();
         radio.setSoundVolume(50);
+
         int expected = 50;
         int actual = radio.getSoundVolume();
 
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
 
     }
 
@@ -19,10 +20,11 @@ public class RadioTest {
     public void ShouldBeSetInvalidSound() { //установка недопустимой громкости(граничные значения)
         Radio radio = new Radio();
         radio.setSoundVolume(-1);
+
         int expected = 0;
         int actual = radio.getSoundVolume();
 
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
 
     }
 
@@ -30,10 +32,11 @@ public class RadioTest {
     public void ShouldBeSetInvalidSound101() { //установка недопустимой громкости(граничные значения)
         Radio radio = new Radio();
         radio.setSoundVolume(101);
+
         int expected = 0;
         int actual = radio.getSoundVolume();
 
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
 
     }
 
@@ -41,22 +44,26 @@ public class RadioTest {
     public void soundShouldBeSetMin() { //установка минимального звука
         Radio radio = new Radio();
         radio.setSoundVolume(0);
+
         int expected = 0;
         int actual = radio.getSoundVolume();
 
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void soundShouldBeSetMax() { // установка максимального звука
         Radio radio = new Radio();
         radio.setSoundVolume(100);
+
         int expected = 100;
         int actual = radio.getSoundVolume();
 
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldAddSound() { // увеличение громкости на 1
         Radio radio = new Radio();
@@ -175,6 +182,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSelectingInvalidRadioStation() {// выбор  недопустимой станции радио (граничное значение)
         Radio radio = new Radio();
