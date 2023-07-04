@@ -237,7 +237,7 @@ public class RadioTest {
         radio.nextStation();
 
         int expected = 0;
-        int actual = radio.getMinRadioStation();
+        int actual = radio.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -302,7 +302,7 @@ public class RadioTest {
         radio.prevStation();
 
         int expected = 9;
-        int actual = radio.getMaxRadioStation();
+        int actual = radio.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
     }
