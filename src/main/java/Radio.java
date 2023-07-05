@@ -55,14 +55,16 @@ public class Radio {
     public void nextStation() {
         if (currentRadioStationNumber < 9) {
             currentRadioStationNumber = currentRadioStationNumber + 1;
-        }else{currentRadioStationNumber = 0;
+        } else {
+            currentRadioStationNumber = 0;
         }
     }
 
     public void prevStation() {
         if (currentRadioStationNumber > 0) {
             currentRadioStationNumber = currentRadioStationNumber - 1;
-        }else{currentRadioStationNumber = 9;
+        } else {
+            currentRadioStationNumber = 9;
         }
     }
 }
